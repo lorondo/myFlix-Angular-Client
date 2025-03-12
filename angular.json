@@ -57,20 +57,20 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "myFlix-Angular-Client:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "myFlix-Angular-Client:build:production"
-            },
-            "development": {
-              "browserTarget": "myFlix-Angular-Client:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
+  "builder": "@angular-devkit/build-angular:dev-server",
+  "options": {
+    "browserTarget": "myFlix-Angular-Client:build"
+  },
+  "configurations": {
+    "production": {
+      "browserTarget": "myFlix-Angular-Client:build:production"
+    },
+    "development": {
+      "browserTarget": "myFlix-Angular-Client:build:development"
+    }
+  },
+  "defaultConfiguration": "development"
+},
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
