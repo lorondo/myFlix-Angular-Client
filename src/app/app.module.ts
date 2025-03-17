@@ -23,7 +23,8 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { UserLoginComponent } from './user-login/user-login.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
-    UserLoginFormComponent,
+    UserLoginComponent,
     MovieCardComponent,
     WelcomePageComponent,
     ProfileViewComponent,
