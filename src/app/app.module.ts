@@ -43,7 +43,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    //HttpClientModule,
+    HttpClientModule,
     AppRoutingModule,
     MatInputModule,
     MatButtonModule,
@@ -56,12 +56,14 @@ const appRoutes: Routes = [
     MatIconModule,
     MatToolbarModule, 
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatProgressSpinnerModule,
   ],
   providers: [
+    provideAnimationsAsync(),
     //provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {}
