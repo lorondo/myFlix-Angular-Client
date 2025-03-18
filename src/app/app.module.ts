@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-// import { provideHttpClient } from '@angular/common/http';
 
+// Angular Material Modules (Grouped)
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -16,55 +16,50 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { AppRoutingModule } from './app-routing.module';
+// App Components
 import { AppComponent } from './app.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
-import { UserLoginComponent } from './user-login/user-login.component';
+import { LoginComponent } from './user-login/user-login.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 
-
+// Define Routes Here
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
-  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
-    UserLoginComponent,
+    LoginComponent,
     MovieCardComponent,
     WelcomePageComponent,
     ProfileViewComponent,
-    MovieDialogComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes),
+
+    // Angular Material Modules
     MatInputModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
     MatDialogModule,
     MatSnackBarModule,
-    FormsModule,
-    BrowserAnimationsModule,
     MatIconModule,
-    MatToolbarModule, 
-    ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
+    MatToolbarModule,
     MatProgressSpinnerModule,
   ],
-  providers: [
-    provideAnimationsAsync(),
-    //provideHttpClient()
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-
-export class AppModule {}
+export class AppModule { }

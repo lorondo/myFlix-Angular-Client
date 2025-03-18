@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 // API URL
 const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
@@ -57,11 +56,6 @@ export class UserRegistrationService {
   // User Registration
   userRegistration(userDetails: any): Observable<any> {
     return this.post('users', userDetails);
-  }
-
-  // User Login
-  userLogin(loginDetails: any): Observable<any> {
-    return this.post('login', loginDetails);
   }
 
   // Get all movies
