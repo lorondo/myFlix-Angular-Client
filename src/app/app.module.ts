@@ -44,7 +44,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { enableTracing: true } ),
 
     // Angular Material Modules
     MatInputModule,
