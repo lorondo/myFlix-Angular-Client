@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-// Angular Material Modules (Grouped)
+// Angular Material Modules
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -19,12 +19,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // App Components
 import { AppComponent } from './app.component';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
-import { LoginComponent } from './user-login/user-login.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
-import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { LoginComponent } from './user-login/user-login.component';
 
-// Define Routes Here
+// Define Routes
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
@@ -36,9 +35,8 @@ const appRoutes: Routes = [
     AppComponent,
     UserRegistrationFormComponent,
     LoginComponent,
-    MovieCardComponent,
     WelcomePageComponent,
-    ProfileViewComponent,
+    MovieCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +58,6 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] // Ensure AppComponent is bootstrapped
 })
-export class AppModule { }
+export class AppModule {}
