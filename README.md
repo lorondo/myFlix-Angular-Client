@@ -17,7 +17,7 @@ Ensure you have **Node.js (>=18.0.0)** and **Angular CLI (>=19.2.1)** installed.
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/myFlix-Angular-Client.git
+   git clone https://github.com/lorondo/myFlix-Angular-Client.git
    cd myFlix-Angular-Client
    ```
 
