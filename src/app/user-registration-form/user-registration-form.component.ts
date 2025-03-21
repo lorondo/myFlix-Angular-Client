@@ -4,19 +4,31 @@ import { UserRegistrationService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router'; // Import Router for redirection
 
-@Component({
-  selector: 'app-user-registration-form',
-  templateUrl: './user-registration-form.component.html',
-  styleUrls: ['./user-registration-form.component.scss'],
-})
-
 /**
  * Component for the user registration form.
  * Provides a form for users to enter their username, password, email, and birthday.
  */
+@Component({
+  selector: 'app-user-registration-form', // The selector for the component, used to place it in the DOM
+  templateUrl: './user-registration-form.component.html', // The HTML template associated with the component
+  styleUrls: ['./user-registration-form.component.scss'], // The styles specific to this component
+})
+
 export class UserRegistrationFormComponent implements OnInit {
+  /**
+   * The data object for the user registration form.
+   * Bound to the form inputs for capturing user data.
+   * @input
+   */
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
+  /**
+   * Creates an instance of UserRegistrationFormComponent.
+   * @param fetchApiData The service for handling API interactions related to user registration.
+   * @param dialogRef The reference to the dialog to close it after successful registration.
+   * @param snackBar The snack bar used to show messages to the user.
+   * @param router The router used for navigation after registration.
+   */
   constructor(
     public fetchApiData: UserRegistrationService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
@@ -24,6 +36,10 @@ export class UserRegistrationFormComponent implements OnInit {
     private router: Router // Inject Router for navigation
   ) {}
 
+  /**
+   * Lifecycle hook that is called after Angular has initialized all data-bound properties.
+   * It is currently empty, but can be used to add initialization logic.
+   */
   ngOnInit(): void {}
 
   /**

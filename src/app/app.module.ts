@@ -1,10 +1,16 @@
+/**
+ * The main module of the application.
+ * Configures the root module, imports necessary dependencies, and defines application routes.
+ */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-// Angular Material Modules
+/**
+ * Import Angular Material modules to enhance UI/UX.
+ */
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -16,20 +22,31 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-// App Components
+/**
+ * Import application components.
+ */
 import { AppComponent } from './app.component';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { LoginComponent } from './user-login/user-login.component';
 
-// Define Routes
+/**
+ * Defines application routes.
+ * - `/welcome` renders `WelcomePageComponent`
+ * - `/movies` renders `MovieCardComponent`
+ * - Default route redirects to `/welcome`
+ */
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 ];
 
+/**
+ * Root module of the Angular application.
+ * Declares components, imports required modules, and configures routes.
+ */
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +61,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true } ),
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
 
     // Angular Material Modules
     MatInputModule,
@@ -58,6 +75,6 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
   ],
   providers: [],
-  bootstrap: [AppComponent] // Ensure AppComponent is bootstrapped
+  bootstrap: [AppComponent] // Bootstraps the main application component
 })
 export class AppModule {}
