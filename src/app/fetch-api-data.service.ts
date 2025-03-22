@@ -187,6 +187,6 @@ export class UserRegistrationService {
    */
   userLogin(userData: { Username: string, Password: string }): Observable<any> {
     return this.http.post(`${apiUrl}login`, userData, { headers: this.getAuthHeaders() })
-      .pipe(catchError(this.handleError));
-  }
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }  
 }

@@ -30,6 +30,7 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { LoginComponent } from './user-login/user-login.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
 
 /**
  * Defines application routes.
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
     LoginComponent,
     WelcomePageComponent,
     MovieCardComponent,
+    ProfileViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatProgressSpinnerModule,
   ],
-  providers: [],
+  providers: [UserRegistrationService],
   bootstrap: [AppComponent] // Bootstraps the main application component
 })
 export class AppModule {}
