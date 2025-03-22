@@ -9,7 +9,8 @@ import { UserRegistrationService } from '../fetch-api-data.service';
 @Component({
   selector: 'app-movie-card', // The selector for this component, used to place it in the DOM
   templateUrl: './movie-card.component.html', // The HTML template for this component
-  styleUrls: ['./movie-card.component.scss'] // The styles specific to this component
+  styleUrls: ['./movie-card.component.scss'], // The styles specific to this component
+  standalone: false,
 })
 export class MovieCardComponent implements OnInit {  // ✅ Implements OnInit properly
   /**

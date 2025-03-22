@@ -10,9 +10,10 @@ import { UserRegistrationService } from '../fetch-api-data.service';
 @Component({
   selector: 'app-profile-view',
   templateUrl: './profile-view.component.html',
-  styleUrls: ['./profile-view.component.scss']
+  styleUrls: ['./profile-view.component.scss'],
+  standalone: false,
 })
-export class ProfileViewComponent {
+export class ProfileViewComponent implements OnInit {
   user: any; // Holds the user data
 
   constructor(private fetchApiData: UserRegistrationService) {}

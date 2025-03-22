@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router'; 
 
 /**
  * Import Angular Material modules to enhance UI/UX.
@@ -63,7 +63,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    RouterModule.forRoot(appRoutes),
 
     // Angular Material Modules
     MatInputModule,
@@ -76,7 +76,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatProgressSpinnerModule,
   ],
-  providers: [UserRegistrationService],
+  providers: [],
   bootstrap: [AppComponent] // Bootstraps the main application component
 })
 export class AppModule {}

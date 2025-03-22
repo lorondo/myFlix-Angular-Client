@@ -18,7 +18,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-user-login', // The selector for this component, used to place it in the DOM
   templateUrl: './user-login.component.html', // The HTML template for this component
-  styleUrls: ['./user-login.component.scss'] // The styles specific to this component
+  styleUrls: ['./user-login.component.scss'], // The styles specific to this component
+  standalone: false,
 })
 export class LoginComponent implements OnInit {
   

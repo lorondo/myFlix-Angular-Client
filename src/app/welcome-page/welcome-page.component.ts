@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
  */
 @Component({
   selector: 'app-welcome-page', // The selector for the component, used to place it in the DOM
+  standalone: false,
   templateUrl: './welcome-page.component.html', // The HTML template associated with the component
   styleUrls: ['./welcome-page.component.scss'] // The styles specific to this component
 })

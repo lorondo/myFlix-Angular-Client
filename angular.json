@@ -35,10 +35,10 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "server": "src/main.server.ts",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            // "server": "src/main.server.ts",
+            // "ssr": {
+            //   "entry": "src/server.ts"
+            // }
           },
           "configurations": {
             "production": {

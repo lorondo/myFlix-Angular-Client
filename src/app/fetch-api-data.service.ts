@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 // API URL (Ensure it ends with `/`)
-const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
+const apiUrl = 'https://movies-flix123-4387886b5662.herokuapp.com/';
 
 /**
  * Service for user registration and interaction with movie-related data.

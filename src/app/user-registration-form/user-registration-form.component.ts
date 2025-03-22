@@ -12,6 +12,7 @@ import { Router } from '@angular/router'; // Import Router for redirection
   selector: 'app-user-registration-form', // The selector for the component, used to place it in the DOM
   templateUrl: './user-registration-form.component.html', // The HTML template associated with the component
   styleUrls: ['./user-registration-form.component.scss'], // The styles specific to this component
+  standalone: false,
 })
 
 export class UserRegistrationFormComponent implements OnInit {
