@@ -13,7 +13,7 @@ import { MovieCardDataComponent } from '../movie-card-data/movie-card-data.compo
 })
 export class MovieCardComponent implements OnInit {  // ✅ Implements OnInit properly
   movies: any[] = [];
-  favoriteMovies: Set<string> = new Set();
+  favoriteMovies: { [key: string]: boolean } = {};
 
   constructor(private fetchApiData: UserRegistrationService, private dialog: MatDialog) {}  // ✅ Marked as private (best practice)
 
@@ -33,18 +33,65 @@ export class MovieCardComponent implements OnInit {  // ✅ Implements OnInit pr
     );
   }
 
+  /**
+   * Toggle favorite status: 
+   * If movie is already favorited, remove it, else add it.
+   * Calls the backend API to update the user's FavoriteMovies list.
+   */
   toggleFavorite(movie: any): void {
-    // Toggle the movie's favorite status using its ID
-    if (this.favoriteMovies.has(movie.id)) {
-      this.favoriteMovies.delete(movie.id);
+    const movieId = movie._id;
+
+    // If the movie is already a favorite, remove it
+    if (this.favoriteMovies[movieId]) {
+      this.removeFavorite(movieId);
     } else {
-      this.favoriteMovies.add(movie.id);
+      // If it's not a favorite, add it
+      this.addFavorite(movieId);
     }
   }
 
+  /**
+   * Calls the backend API to add the movie to the user's favorites.
+   * Updates the local state for favorite movies.
+   */
+  addFavorite(movieId: string): void {
+    const userId = 'current-user-id';  // Replace with the actual logged-in user's ID
+
+    this.fetchApiData.addMovieToFavorites(userId, movieId).subscribe(
+      (response: any) => {
+        this.favoriteMovies[movieId] = true;  // Mark the movie as a favorite
+        console.log('Movie added to favorites:', response);
+      },
+      (error) => {
+        console.error('Error adding movie to favorites:', error);
+      }
+    );
+  }
+
+  /**
+   * Calls the backend API to remove the movie from the user's favorites.
+   * Updates the local state for favorite movies.
+   */
+  removeFavorite(movieId: string): void {
+    const userId = 'current-user-id';  // Replace with the actual logged-in user's ID
+
+    this.fetchApiData.removeMovieFromFavorites(userId, movieId).subscribe(
+      (response: any) => {
+        delete this.favoriteMovies[movieId];  // Remove the movie from favorites
+        console.log('Movie removed from favorites:', response);
+      },
+      (error) => {
+        console.error('Error removing movie from favorites:', error);
+      }
+    );
+  }
+
+  /**
+   * Check if the movie is favorited based on the movie ID.
+   * Returns true or false based on the local state.
+   */
   isFavorite(movie: any): boolean {
-    // Check if the movie is in the favorite set
-    return this.favoriteMovies.has(movie.id);
+    return !!this.favoriteMovies[movie._id];  // Returns true if the movie is in the favorite state
   }
 
   openDialog(type: string, movie: any): void {

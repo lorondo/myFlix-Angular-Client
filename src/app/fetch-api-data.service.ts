@@ -109,6 +109,34 @@ export class UserRegistrationService {
 
   // -------------------- Public API Methods --------------------
 
+  /**
+   * Retrieves the list of favorite movies for a user.
+   * @param userId The ID of the user whose favorite movies to retrieve.
+   * @returns An observable containing the list of favorite movies.
+   */
+  getFavoriteMovies(userId: string): Observable<any> {
+    return this.get(`users/${userId}/favorites`);
+  }
+
+  /**
+   * Adds a movie to the user's favorite list.
+   * @param userId The ID of the user to add the movie to.
+   * @param movieId The ID of the movie to add to the favorites.
+   * @returns An observable containing the updated user data.
+   */
+  addMovieToFavorites(userId: string, movieId: string): Observable<any> {
+    return this.post(`users/${userId}/movies/${movieId}`, {}); // Sending an empty body to match the backend API
+  }
+
+  /**
+   * Removes a movie from the user's favorite list.
+   * @param userId The ID of the user to remove the movie from.
+   * @param movieId The ID of the movie to remove from the favorites.
+   * @returns An observable containing the updated user data.
+   */
+  removeMovieFromFavorites(userId: string, movieId: string): Observable<any> {
+    return this.delete(`users/${userId}/movies/${movieId}`);
+  }
 
   // Fetch genre for a movie
   getMovieGenre(movieId: string): Observable<any> {
@@ -124,7 +152,7 @@ export class UserRegistrationService {
   getMovieSynopsis(movieId: string): Observable<any> {
     return this.http.get(`${apiUrl}movies/${movieId}/synopsis`);
   }
-  
+
   /**
    * Registers a new user by sending the user details to the backend API.
    * @param userDetails The details of the user to register.
