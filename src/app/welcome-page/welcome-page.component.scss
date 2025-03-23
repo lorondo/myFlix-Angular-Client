@@ -1,18 +1,25 @@
 .main-page {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 50vh; // Upper half of the screen
-  margin-top: 25vh; // Center vertically in the upper half
+  align-items: center;  /* Centers both horizontally and vertically */
+  height: 100vh;  /* Takes up the full height of the viewport */
+  text-align: center;
+}
 
-  h1 {
-    margin-bottom: 20px;
-    text-align: center;
-  }
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;  /* Adds space between the buttons */
+  margin-top: 20px;  /* Adds space between the message and buttons */
+}
 
-  .button-group {
-    display: flex;
-    gap: 10px; // Spacing between buttons
-  }
+.auth-button {
+  background-color: #004d40;  /* Matching color with the toolbar */
+  color: white;  /* White text inside the button */
+  text-transform: none;  /* Ensure text is not capitalized */
+}
+
+.auth-button:hover {
+  background-color: #00796b;  /* Darker green when hovered */
 }
