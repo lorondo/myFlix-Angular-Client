@@ -8,7 +8,7 @@
 </div>
 
 <div class="favorite-movies-section">
-  <h2>Your Favorite Movies</h2>
+  <h2>Favorite Movies</h2>
 
   <!-- Movies Grid -->
   <div *ngIf="favoriteMovies.length > 0" class="movies-grid">
@@ -40,6 +40,6 @@
 
   <!-- Fallback Message -->
   <div *ngIf="favoriteMovies.length === 0">
-      <h3>You don't have any favorite movies yet!</h3>
+      <p>You don't have any favorite movies yet!</p>
   </div>
 </div>

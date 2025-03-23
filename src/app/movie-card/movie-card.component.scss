@@ -1,0 +1,52 @@
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  justify-items: center;
+  margin: 20px; /* Margin to give space around the grid */
+}
+
+.movie-card {
+  max-width: 300px;  /* Limit the width of each card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; /* Rounded corners for the cards */
+  overflow: visible; /* Ensure the icon doesn't get cut off */
+  background-color: #ffffff; /* White background for the cards */
+}
+
+.movie-image {
+  width: 100%;  /* Make the image fill the entire width of the card */
+  height: auto;
+  object-fit: cover;  /* Ensure the image maintains its aspect ratio */
+}
+
+mat-card-title {
+  font-size: 1.2rem;  /* Adjust title font size */
+  font-weight: bold;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align buttons and icon properly */
+  border-radius: 0 0 8px 8px; /* Optional: round the bottom corners */
+  padding: 10px;
+}
+
+mat-icon {
+  cursor: pointer;
+  font-size: 2rem;
+  color: #e91e63;
+  padding: 5px;
+  border-radius: 50%; /* Circular background for the icon */
+}
+
+mat-icon.favorite {
+  color: #ff4081;  /* Color when the icon is selected (favorite) */
+}
+
+mat-card-header {
+  background-color: #004d40; /* Darker green background for header */
+  color: white;
+  padding: 10px;
+}

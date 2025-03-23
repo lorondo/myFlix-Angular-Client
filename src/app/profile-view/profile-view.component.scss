@@ -1,3 +1,59 @@
+.profile-container, .favorite-movies-section {
+  margin: 20px;
+}
+
+.profile-info {
+  margin-bottom: 20px;
+}
+
+.favorite-movies-section {
+  margin-top: 20px;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  justify-items: center;
+}
+
+.movie-card {
+  max-width: 300px; /* Limit the width of each card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; /* Optional, if you want rounded corners */
+  overflow: visible; /* Ensure that the icon is not clipped */
+}
+
+.movie-image {
+  width: 100%;  /* Ensure the image takes up the full width of the card */
+  height: auto;
+  object-fit: cover;  /* Maintain aspect ratio */
+}
+
+mat-card-title {
+  font-size: 1.2rem;  /* Adjust title font size */
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensure that the content is aligned properly */
+  border-radius: 0 0 8px 8px; /* Optional, if you want to round the bottom corners */
+}
+
+mat-icon {
+  cursor: pointer;
+  font-size: 2rem;
+  color: #e91e63;
+  padding: 5px; /* Optional, adds some padding around the icon */
+  border-radius: 50%; /* Optional, adds a circular background around the icon */
+}
+
+mat-icon.favorite {
+  color: #ff4081; /* Color when favorite icon is selected */
+}
+
+/* Profile card styling */
 .profile-card {
   width: 100%;
   max-width: 600px;

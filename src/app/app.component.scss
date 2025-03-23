@@ -1,0 +1,18 @@
+.toolbar {
+  background-color: #004d40;  /* Darker shade of green */
+  color: white;  /* White text */
+}
+
+.title {
+  font-size: 1.5rem;  /* Adjust size as necessary */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.spacer {
+  flex: 1;  /* This will push the mat-buttons to the right */
+}
+
+mat-toolbar button {
+  color: white;  /* Make button text white */
+}
