@@ -46,7 +46,7 @@ export class MovieCardComponent implements OnInit {  // ✅ Implements OnInit pr
     const movieId = movie._id;
 
     // If the movie is already a favorite, remove it
-    if (this.favoriteMovies[movieId]) {
+    if (this.favoriteMovies.includes(movie._id)) {
       this.removeFavorite(movieId);
     } else {
       // If it's not a favorite, add it
@@ -96,7 +96,7 @@ export class MovieCardComponent implements OnInit {  // ✅ Implements OnInit pr
    * Returns true or false based on the local state.
    */
   isFavorite(movie: any): boolean {
-    return !!this.favoriteMovies[movie._id];  // Returns true if the movie is in the favorite state
+    return this.favoriteMovies.includes(movie._id);  // Returns true if the movie is in the favorite state
   }
 
   openDialog(type: string, movie: any): void {

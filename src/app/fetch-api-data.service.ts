@@ -110,15 +110,6 @@ export class UserRegistrationService {
   // -------------------- Public API Methods --------------------
 
   /**
-   * Retrieves the list of favorite movies for a user.
-   * @param userId The ID of the user whose favorite movies to retrieve.
-   * @returns An observable containing the list of favorite movies.
-   */
-  getFavoriteMovies(userId: string): Observable<any> {
-    return this.get(`users/${userId}/favorites`);
-  }
-
-  /**
    * Adds a movie to the user's favorite list.
    * @param userId The ID of the user to add the movie to.
    * @param movieId The ID of the movie to add to the favorites.
