@@ -13,12 +13,16 @@ import { MovieCardDataComponent } from '../movie-card-data/movie-card-data.compo
 })
 export class MovieCardComponent implements OnInit {  // ✅ Implements OnInit properly
   movies: any[] = [];
-  favoriteMovies: { [key: string]: boolean } = {};
+  favoriteMovies: string[] = [];
+  user: any = {};
 
   constructor(private fetchApiData: UserRegistrationService, private dialog: MatDialog) {}  // ✅ Marked as private (best practice)
 
   ngOnInit(): void {
     this.getMovies();
+    let userString: any = localStorage.getItem("user") ? localStorage.getItem("user") : "";
+    this.user = JSON.parse(userString);
+    this.favoriteMovies = this.user.FavoriteMovies;
   }
 
   getMovies(): void {
@@ -55,11 +59,11 @@ export class MovieCardComponent implements OnInit {  // ✅ Implements OnInit pr
    * Updates the local state for favorite movies.
    */
   addFavorite(movieId: string): void {
-    const userId = 'current-user-id';  // Replace with the actual logged-in user's ID
+    const username = this.user.Username;  // Replace with the actual logged-in user's ID
 
-    this.fetchApiData.addMovieToFavorites(userId, movieId).subscribe(
+    this.fetchApiData.addMovieToFavorites(username, movieId).subscribe(
       (response: any) => {
-        this.favoriteMovies[movieId] = true;  // Mark the movie as a favorite
+        this.favoriteMovies.push(movieId);  // Mark the movie as a favorite
         console.log('Movie added to favorites:', response);
       },
       (error) => {
@@ -73,11 +77,12 @@ export class MovieCardComponent implements OnInit {  // ✅ Implements OnInit pr
    * Updates the local state for favorite movies.
    */
   removeFavorite(movieId: string): void {
-    const userId = 'current-user-id';  // Replace with the actual logged-in user's ID
+    const username = this.user.Username;  // Replace with the actual logged-in user's ID
 
-    this.fetchApiData.removeMovieFromFavorites(userId, movieId).subscribe(
+    this.fetchApiData.removeMovieFromFavorites(username, movieId).subscribe(
       (response: any) => {
-        delete this.favoriteMovies[movieId];  // Remove the movie from favorites
+        let index = this.favoriteMovies.indexOf(movieId);  // Remove the movie from favorites
+        this.favoriteMovies.splice(index, 1);
         console.log('Movie removed from favorites:', response);
       },
       (error) => {
