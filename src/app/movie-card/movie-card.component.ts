@@ -13,6 +13,7 @@ import { MovieCardDataComponent } from '../movie-card-data/movie-card-data.compo
 })
 export class MovieCardComponent implements OnInit {  // ✅ Implements OnInit properly
   movies: any[] = [];
+  favoriteMovies: Set<string> = new Set();
 
   constructor(private fetchApiData: UserRegistrationService, private dialog: MatDialog) {}  // ✅ Marked as private (best practice)
 
@@ -30,6 +31,20 @@ export class MovieCardComponent implements OnInit {  // ✅ Implements OnInit pr
         console.error('Error fetching movies:', error);
       }
     );
+  }
+
+  toggleFavorite(movie: any): void {
+    // Toggle the movie's favorite status using its ID
+    if (this.favoriteMovies.has(movie.id)) {
+      this.favoriteMovies.delete(movie.id);
+    } else {
+      this.favoriteMovies.add(movie.id);
+    }
+  }
+
+  isFavorite(movie: any): boolean {
+    // Check if the movie is in the favorite set
+    return this.favoriteMovies.has(movie.id);
   }
 
   openDialog(type: string, movie: any): void {
