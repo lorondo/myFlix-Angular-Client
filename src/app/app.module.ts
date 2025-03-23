@@ -31,6 +31,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { LoginComponent } from './user-login/user-login.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { MovieCardDataComponent } from './movie-card-data/movie-card-data.component';
 
 /**
  * Defines application routes.
@@ -56,6 +57,7 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     MovieCardComponent,
     ProfileViewComponent,
+    MovieCardDataComponent
   ],
   imports: [
     BrowserModule,

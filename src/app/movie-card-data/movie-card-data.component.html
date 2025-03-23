@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<mat-dialog-content>
+  <div *ngIf="data.type === 'genre'">
+    <p><strong>Genre:</strong> {{ data.movie.Genre.Name }}</p>
+    <p>{{ data.movie.Genre.Description }}</p>
+  </div>
+  <div *ngIf="data.type === 'director'">
+    <p><strong>Director:</strong> {{ data.movie.Director.Name }}</p>
+    <p>{{ data.movie.Director.Bio }}</p>
+  </div>
+  <div *ngIf="data.type === 'synopsis'">
+    <p><strong>Synopsis:</strong></p>
+    <p>{{ data.movie.Description }}</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Close</button>
+</mat-dialog-actions>

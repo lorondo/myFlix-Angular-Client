@@ -109,6 +109,22 @@ export class UserRegistrationService {
 
   // -------------------- Public API Methods --------------------
 
+
+  // Fetch genre for a movie
+  getMovieGenre(movieId: string): Observable<any> {
+    return this.http.get(`${apiUrl}movies/${movieId}/genre`);
+  }
+
+  // Fetch director for a movie
+  getMovieDirector(movieId: string): Observable<any> {
+    return this.http.get(`${apiUrl}movies/${movieId}/director`);
+  }
+
+  // Fetch synopsis for a movie
+  getMovieSynopsis(movieId: string): Observable<any> {
+    return this.http.get(`${apiUrl}movies/${movieId}/synopsis`);
+  }
+  
   /**
    * Registers a new user by sending the user details to the backend API.
    * @param userDetails The details of the user to register.
